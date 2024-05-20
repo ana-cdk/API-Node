@@ -1,0 +1,12 @@
+@url = http://localhost:3000/events
+
+###CRIAR
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "Event 123",
+    "type": "tipo",
+    "deviceId": 1,
+    "details": "efhufhuesjfcsdefhe fehhfeuhehu"
+}
