@@ -1,23 +1,25 @@
 const jwt = require("jsonwebtoken");
 
 const isAuthorized = (req, res, next) => {
-    //Obter token
+    // Obter o Token
     const { authorization } = req.headers;
 
-    if (!authorization)
-        return res.status(403).json({message: "Sem token"});
-    //Validar token
-    jwt.verify(authorization, process.env.JWT_SECRET, (err, decoded) => {
-        console.log(decoded);
+    if (!authorization) {
+        return res.status(403).json({ message: 'Sem Token' });
+    }
 
-        // Se ocorrer erro na decodificação do token
-        if(err) return res.status(401).json({message: "Token inválido"});
-        
+    const token = authorization.split(' ')[1]; // Remove "Bearer " do token
+
+    // Validar o Token
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => { // Use 'token' aqui
+        if (err) {
+            return res.status(401).json({ message: 'Token inválido' });
+        }
+
+        console.log(decoded);
         req.userId = decoded.id; // Insere os dados do token na requisição
-        return next(); // Chama o próximo nó de execução da requisição
+        next(); // Chama o próximo middleware na cadeia de execução
     });
-    
-    //Resposta
-}
+};
 
 module.exports = isAuthorized;

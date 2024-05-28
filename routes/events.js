@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
 })
 
 router.put("/:id", [isAuthorized], async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
   const eventData = req.body;
 
   try {
