@@ -11,7 +11,6 @@ router.get('/', [isAuthorized], async function(req, res) {
 //Obter um evento por id
 router.get("/:id", [isAuthorized], async (req, res) => {
   const {id} = req.params
-
   const result = await Evento.findById(id)
 
   return result

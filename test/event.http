@@ -1,12 +1,13 @@
-@url = http://localhost:3000/events
+@url = http://localhost:3001/events
 
 ###CRIAR
 POST {{url}}
 Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJ1c2VySWQiOiIyIiwidXNlcm5hbWUiOiJhbmEyQGdtYWlsLmNvbSIsImlhdCI6MTcxNzU4NzE0MiwiZXhwIjoxNzE3NjIzMTQyLCJpc3MiOiJVVEZQUiJ9.Uc0OINTTwAfb5qTM-WU9zQDqWwCaYP7U8wW550NRJRk
 
 {
-    "name": "Event 123",
+    "name": "Event 23",
     "type": "tipo",
-    "deviceId": 1,
+    "deviceId": "1",
     "details": "efhufhuesjfcsdefhe fehhfeuhehu"
 }
